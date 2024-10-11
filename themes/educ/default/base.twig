@@ -1,0 +1,45 @@
+{% apply spaceless %}
+<!DOCTYPE html>
+<html lang="{{ currentLanguage }}" dir="{{ isRTL ? 'rtl' : 'ltr' }}">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>{{ pagetitle }}</title>
+    <link rel="stylesheet" href="{{ asset("css/default.css", 'educ') }}">
+    <link rel="icon" href="/assets/icon/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon/android-icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-icon-180x180.png">
+
+    <link rel="manifest" href="/assets/icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="robots" content="noindex, nofollow">
+    {{ include('_head.twig', ignore_missing = true) }}
+    {% block preload %}{% endblock %}
+  </head>
+  <body id="{{ templateId }}">
+    <div id="wrap" class="container">
+      {% block header %}{% include "_header_1.twig" %}{% endblock %}
+      <main>
+        {% block contentwrapper1 %}{% block content %}{% endblock %}{% endblock contentwrapper1 %}
+      </main>
+      {% block footer %}{% include "_footer.twig" %}{% endblock %}
+      <script src="{{ asset('js/bundle.js') }}"></script>
+      {% block postload %}{% endblock %}
+    </div>
+  </body>
+</html>
+{% endapply %}

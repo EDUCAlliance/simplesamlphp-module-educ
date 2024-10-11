@@ -1,0 +1,6 @@
+# IDE profiles
+/inspectionProfiles
+/.idea
+
+/vendor
+/composer.lock

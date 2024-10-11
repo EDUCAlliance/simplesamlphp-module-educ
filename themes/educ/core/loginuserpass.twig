@@ -1,0 +1,128 @@
+{# Username and password form for EDUC module #}
+{# See https://twig.symfony.com/doc/3.x/templates.html #}
+{% set pagetitle = 'Enter your username and password'|trans %}
+
+{% extends "@core/base.twig" %}
+
+{% block postload %}
+    <script src="{{ asset('js/loginuserpass.js', 'core') }}"></script>
+{% endblock %}
+
+{% block content %}
+    {%- if not isProduction %}
+        <h2>{% trans %}Warning{% endtrans %}</h2>
+        <div class="alert alert-warning">
+          {% trans %}You are now accessing a pre-production system. This authentication setup is for testing and pre-production verification only. If someone sent you a link that pointed you here, and you are not <i>a tester</i> you probably got the wrong link, and should <b>not be here</b>.{% endtrans %}
+        </div>
+    {% endif -%}
+    {% if errorcode -%}
+        <div class="alert alert-danger">
+            {% if errorcode == 'AUTHSOURCEERROR' and errorparams['%AUTHSOURCE%'] == "'#central'" %}
+                <h4>A belépés nem engedélyezett / Login is forbidden</h4>
+                <p>{{ errorparams['%REASON%']|trim("'") }}</p>
+            {% else %}
+                {% set errtitles = errorcodes['title'] %}
+                {% set errtitle = errtitles[errorcode] %}
+
+                <h3>{{ errtitle|trans(errorparams) }}</h3>
+
+                {% set errdescs = errorcodes['descr'] %}
+                {% set errdesc = errdescs[errorcode] %}
+
+                <p>{{ errdesc|trans(errorparams) }}</p>
+            {%- endif %}
+        </div>
+    {%- endif %}
+
+    <div class="login-wrapper">
+        <h2>{{ 'Enter your username and password'|trans }}</h2>
+        <p>{{ 'A service has requested you to authenticate yourself. Please enter your username and password in the form below.'|trans }}</p>
+        <div class="center-form login-form-start">
+            <form id="f" class="form-horizontal" action="{{ formURL }}" method="post" name="f" spellcheck="false">
+                    <div class="form-group">
+                        <label for="username" class="form-label">{{ 'Username'|trans }}</label>
+                        <input id="username" {{ forceUsername ? 'disabled' }} placeholder="{{ username }}" type="text" name="username" class="form-control"
+                {%- if not forceUsername %} tabindex="1" value="{{ username }}" autocomplete="username" {% endif %}
+                {%- if not forceUsername and not username %} autofocus {% endif %} >
+                    {% if rememberUsernameEnabled and not forceUsername -%}
+                    </div>
+                    <div class="form-group">
+                        <label for="remember_username" class="form-label">
+                            <input id="remember_username" type="checkbox" tabindex="4"
+                                    {{ rememberUsernameChecked ? 'checked' }} name="remember_username" value="Yes">
+                            <small>{{ 'Remember my username'|trans }}</small>
+                        </label>
+                    {%- endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">{{ 'Password'|trans}}</label>
+                        <input id="password" type="password" tabindex="2" name="password" class="form-control" autocomplete="current-password"
+                        {%- if forceUsername or username %} autofocus {% endif %} >
+                    </div>
+
+                    {% if rememberMeEnabled -%}
+                    <div class="form-group">
+                        <label for="remember_me" class="form-label">
+                        <input id="remember_me" type="checkbox" tabindex="5"
+                                {{ rememberMeChecked ? 'checked="checked"' }} name="remember_me" value="Yes">
+                            <small>{{ 'Remember me'|trans }}</small>
+                        </label>
+                    </div>
+                    {%- endif %}
+
+                    {% if organizations is defined -%}
+                    <div class="pure-control-group">
+                        <label for="organization" class="form-label">{{ 'Organization'|trans }}</label>
+                        <div class="pure-select right pure-input-1-2 pure-input-sm-1-1">
+                            <select name="organization" id="organization" tabindex="3">
+                                {{ selectedOrg ?: null }}
+                                {%- for id, orgDesc in organizations -%}
+                                    {% if id == selectedOrg -%}
+                                        {%- set selected = 'selected="selected"' %}
+                                    {%- else -%}
+                                        {% set selected = '' -%}
+                                    {% endif -%}
+                                    {% if orgDesc -%}
+                                        <option value="{{ id }}" {{ selected }}>{{ orgDesc|trans }}</option>
+                                    {% endif -%}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        {% if rememberOrganizationEnabled is defined -%}
+                        <div class="pure-controls">
+                            <label for="remember_organization" class="form-label">
+                                <input type="checkbox" id="remember_organization" tabindex="5" name="remember_organization"
+                                    value="Yes" {{ rememberOrganizationChecked ? 'checked="checked"' }} >
+                                <small>{{ 'Remember my organization'|trans }}</small>
+                            </label>
+                        </div>
+                        {%- endif %}
+                    </div> <!--pure-control-group-->
+                {%- endif %}
+
+                <div class="form-group login-form-submit">
+                    <button class="btn btn-primary" id="submit_button"
+                            type="submit" tabindex="6" data-default="{% trans %}Login{% endtrans %}"
+                            data-processing="{% trans %}Processing...{% endtrans %}">
+                    {% trans %}Login{% endtrans %}
+                    </button>
+                </div>
+            </form>
+        </div>
+        {% if loginpage_links is defined -%}
+            <ul>
+                {% for link in loginpage_links -%}
+                    <li><a href="{{ link.href }}">{{ link['text']|trans }}</a></li>
+                {% endfor %}
+            </ul>
+        {%- endif %}
+    </div>
+
+    <div class="login-help">
+        <div class="pure-form-message">
+            <h2>{{ 'Help! I don\'t remember my password.'|trans }}</h2>
+            <p>{{ 'Without your username and password you cannot authenticate yourself for access to the service. There may be someone that can help you. Consult the help desk at your organization!'|trans }}</p>
+        </div>
+    </div>
+{% endblock %}

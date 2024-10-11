@@ -1,0 +1,26 @@
+<header id="header">
+    <img src="/assets/img/educ_course_catalogue_logo.svg" id="logo" alt="Educ Course Catalogue Logo" width="195" height="196">
+</header>
+{% if not hideLanguageBar %}
+    <div id="languagebar">
+      {% for key, lang in languageBar %}
+          <span>
+              {% if key == currentLanguage %}
+                  {{ lang.name }}
+              {% else %}
+                  {% if lang.url %}
+                      <a href="{{ lang.url }}
+                        {%- if queryParams %}&{% endif %}
+                            {%- for name, value in queryParams %}
+                                {%- if not loop.first %}&{% endif %}
+                                {%- if value %}{{ name }}={{ value }}{% else %}{{ name }}{% endif %}
+                            {%- endfor %}"
+                         class="dropdown-item"
+                      >{{ lang.name }}</a>
+                  {% endif %}
+              {% endif %}
+              {% if loop.last == false %} | {% endif %}
+          </span>
+      {% endfor %}
+    </div>
+{% endif %}

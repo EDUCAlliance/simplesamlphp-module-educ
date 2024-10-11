@@ -1,0 +1,54 @@
+{% set pagetitle = "Select your identity provider"|trans %}
+{% extends "base.twig" %}
+
+{% block content %}
+    <h2>{{ pagetitle }}</h2>
+
+    {% if idplist|length == 0 %}
+    <div class="message-box message-box-error">{{ "No identity providers found. Cannot continue." | trans }}</div>
+    {% else %}
+
+    <p>{{ "Please select the identity provider where you want to authenticate:" | trans }}</p>
+    <form method="get" action="{{ urlpattern }}">
+        <input type="hidden" name="entityID" value="{{ entityID }}">
+        <input type="hidden" name="return" value="{{ return }}">
+        <input type="hidden" name="returnIDParam" value="{{ returnIDParam }}">
+        {% if rememberenabled %}
+          <div class="form-check">
+              <input type="checkbox" name="remember" id="remember" value="1"{% if rememberchecked %} checked{% endif %} class="form-check-input">
+              <label for="remember" class="form-check-label">
+                {{ 'Remember my choice' | trans }}
+              </label>
+          </div>
+        {% endif %}
+
+        {% for idpentry in idplist %}
+            {% if idpentry.entityid == preferredidp %}
+                    <div class="idp preferredidp idp-row">
+                        <button type="submit" class="btn btn-primary btn-idpselect" name="idp_{{ idpentry.entityid }}">
+                            <i class="fa fa-star"></i> {{ idpentry.name }}
+                        </button>
+                        {% if idpentry.iconurl is defined %}
+                            <div class="pure-u-1-8">
+                                <img src="{{ idpentry.iconurl }}" alt="">
+                            </div>
+                        {% endif %}
+                    </div>
+            {% endif %}
+        {% endfor %}
+
+        {% for idpentry in idplist %}
+            {% if idpentry.entityid != preferredidp %}
+                    <div class="idp idp-row">
+                        <button type="submit" class="btn btn-secondary btn-idpselect" name="idp_{{ idpentry.entityid }}" title="{{'Select'|trans}}">
+                            {% if idpentry.iconurl is defined %}
+                                <img src="{{ idpentry.iconurl }}" alt="">
+                            {% endif %}
+                            {{ idpentry.name }}
+                        </button>
+                    </div>
+            {% endif %}
+        {% endfor %}
+    </form>
+    {% endif %}
+{% endblock %}
