@@ -17,7 +17,6 @@
     "require": {
         "php": ">=8.2",
         "ext-simplexml": "*",
-        "ext-soap": "*",
         "simplesamlphp/simplesamlphp": "^2.3",
         "simplesamlphp/composer-module-installer": "^1.3"
     },
