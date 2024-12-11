@@ -1,5 +1,5 @@
 {
-    "name": "uhi67/simplesamlphp-module-educ",
+    "name": "educalliance/simplesamlphp-module-educ",
     "description": "SimpleSamlPHP design module for EDUC Alliance",
     "type": "simplesamlphp-module",
     "prefer-stable": true,
