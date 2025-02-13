@@ -1,0 +1,8 @@
+---
+
+educ-welcome:
+  path: /welcome
+  defaults: {
+    _controller: 'SimpleSAML\Module\educ\EducThemeController::welcome'
+  }
+  methods: [GET]

@@ -15,6 +15,13 @@ img {
 	display: block;
 }
 
+img#logo {
+	height: 97px;
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+	margin-left: .5rem;
+}
+
 hr {
 	margin: 1em 0;
 	background: #eee;
@@ -83,8 +90,11 @@ dt {
 		text-decoration: none;
 		color: #5b3232;
 		border-bottom: 1px solid #cce;
-
 	}
+	border-top: 2px solid #9d76e5;
+	border-bottom: 2px solid #28bd7e;
+	padding-top: .5rem;
+	padding-bottom: .5rem;
 }
 
 #content {
@@ -115,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	font-size: 196%;
-	margin-top: 0;
+	margin-top: 2rem;
 	border: none;
 }
 
@@ -408,7 +418,6 @@ div.login-help { padding-left: 40px;}
 #header {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
 	img {
 		vertical-align: middle;
 		margin-right: auto;
@@ -493,4 +502,72 @@ button.btn-idpselect + p {
 			margin-right: 1rem;
 		}
 	}
+}
+
+.pure-menu-horizontal {
+	width: 100%;
+	white-space: nowrap;
+	.pure-menu-list {
+		display: inline-block;
+	}
+	.pure-menu-item,
+	.pure-menu-heading,
+	.pure-menu-separator {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	border-bottom: 1px solid black;
+}
+.pure-menu {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.pure-menu-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	margin-left: 1rem;
+	.pure-menu-item {
+		position: relative;
+	}
+	margin-bottom: -1px;
+}
+.pure-menu-item {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	border-bottom: 1px solid black;
+	border-top: 1px dotted gray;
+	border-left: 1px dotted gray;
+	border-right: 1px dotted gray;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	&.pure-menu-selected {
+		border-bottom: 1px solid var(--main-bg-color);
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+		border-top: 1px solid black;
+	}
+}
+.pure-menu-link,
+.pure-menu-heading {
+	padding: 0.5em 1em;
+}
+.pure-menu-link {
+	color: #5f8cb4;
+}
+.pure-menu-link,
+.pure-menu-heading {
+	display: block;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.pure-menu-selected > .pure-menu-link,
+.pure-menu-selected > .pure-menu-link:visited {
+	color: #606;
+}
+
+.frontpage-menu {
+	margin-top: 1.5rem;
+	margin-bottom: .5rem;
 }
