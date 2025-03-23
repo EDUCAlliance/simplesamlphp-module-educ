@@ -27,6 +27,7 @@
                     <div class="idp preferredidp idp-row">
                         <button type="submit" class="btn btn-primary btn-idpselect" name="idp_{{ idpentry.entityid }}">
                             <i class="fa fa-star"></i> {{ idpentry.name }}
+                            {% if env!='production' %}<div class="small">{{ idpentry.entityid }}</div>{% endif %}
                         </button>
                         {% if idpentry.iconurl is defined %}
                             <div class="pure-u-1-8">
@@ -45,6 +46,7 @@
                                 <img src="{{ idpentry.iconurl }}" alt="">
                             {% endif %}
                             {{ idpentry.name }}
+                            {% if env!='production' %}<div class="small">{{ idpentry.entityid }}</div>{% endif %}
                         </button>
                     </div>
             {% endif %}

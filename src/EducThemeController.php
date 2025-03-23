@@ -20,6 +20,7 @@ class EducThemeController implements TemplateControllerInterface
 
     public function display(array &$data): void
     {
+        $data['env'] = getenv('APPLICATION_ENV')?:'production';
     }
 
     public function welcome(): Template

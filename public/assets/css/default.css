@@ -525,4 +525,7 @@ button.btn-idpselect + p {
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
 }
-/*# sourceMappingURL=default.css.map */
+button .small {
+  font-size: 0.7rem;
+  color: #9c75e3;
+}
