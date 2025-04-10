@@ -325,6 +325,11 @@ input[name=remember] {
   padding: 5px;
   cursor: hand;
 }
+.btn.btn-primary,
+.btnaddonright.btn-primary {
+  background-color: #6ecfa5;
+  background-image: linear-gradient(#8ce8be, #7ab89f);
+}
 .btn:hover,
 .btnaddonright:hover {
   border-color: #ccc;
@@ -476,5 +481,44 @@ form div.idp {
 .small {
   font-size: small;
   font-weight: lighter;
+}
+div.alert {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+div.alert.alert-warning {
+  background-color: #f8bcac;
+}
+div.alert.alert-danger {
+  background-color: #ffb0cb;
+}
+div.alert.alert-danger h3 {
+  margin: 0.5rem 0;
+  border: none;
+}
+div.alert.alert-danger p {
+  padding: 0;
+  margin: 0;
+}
+div.alert.alert-danger p + p {
+  margin-top: 1rem;
+}
+.message-box.warning {
+  background-color: #ffb0cb;
+  border-left-color: #f76d98;
+}
+.pure-button-red,
+a.pure-button-red {
+  background-color: #ef85a7;
+  background-image: linear-gradient(#ef85a7, #c16b86);
+  color: #000;
+}
+.expandable .expander::after {
+  content: "";
+  font-family: "Font Awesome 6 Free", sans-serif;
+  font-weight: 400;
+}
+.frontpage-menu {
+  margin-top: 1rem;
 }
 /*# sourceMappingURL=default.css.map */

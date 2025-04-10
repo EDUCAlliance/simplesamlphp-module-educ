@@ -354,13 +354,16 @@ input[name=remember] { margin-right:4px; }
 	text-align: center;
 	padding: 5px;
 	cursor: hand;
+    &.btn-primary {
+        background-color: #6ecfa5;
+        background-image: linear-gradient(#8ce8be, #7ab89f);
+    }
 }
 
 .btn:hover, .btnaddonright:hover {
 	border-color: #ccc;
 	background-color: #ddd;
 	background-image: linear-gradient(#eee, #ddd);
-
 }
 
 .btn img,
@@ -523,4 +526,47 @@ form {
 .small {
     font-size: small;
     font-weight: lighter;
+}
+
+div.alert {
+    padding: .5rem;
+    margin-bottom: 1rem;
+    &.alert-warning {
+        background-color: #f8bcac;
+    }
+    &.alert-danger {
+        background-color: #ffb0cb;
+        h3 {
+            margin: .5rem 0;
+            border: none;
+        }
+        p {
+            padding: 0;
+            margin: 0;
+            + p {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+.message-box.warning {
+    background-color: #ffb0cb;
+    border-left-color: #f76d98;
+}
+
+.pure-button-red, a.pure-button-red {
+    background-color: #ef85a7;
+    background-image: linear-gradient(#ef85a7, #c16b86);
+    color: #000;
+}
+
+.expandable .expander::after {
+    content: "";
+    font-family: "Font Awesome 6 Free", sans-serif;
+    font-weight: 400;
+}
+
+.frontpage-menu {
+    margin-top: 1rem;
 }
