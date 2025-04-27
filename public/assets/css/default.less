@@ -7,7 +7,8 @@ body {
 	text-align: left;
 	background: #ffffff;
 	color: #333;
-	font: 83%/1.5 arial,tahoma,verdana,sans-serif;
+	font: 83%/1.5;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
 }
 
 img {
@@ -118,7 +119,8 @@ ul {
 
 h1, h2, h3, h4, h5, h6 {
 	letter-spacing: -1px;
-	font-family: arial,verdana,sans-serif;
+	//font-family: arial,verdana,sans-serif;
+    font-weight: 700;
 	margin: 1.2em 0 .3em;
 	color: #000;
 	border-bottom: 1px solid #eee;
@@ -133,6 +135,7 @@ h1 {
 
 h2 {
 	font-size: 136%;
+    font-weight: 600;
 }
 
 h3 {
@@ -430,8 +433,10 @@ div.login-help { padding-left: 40px;}
 		margin-right: auto;
 	}
 	h1 {
-		display: flex;
 		align-items: center;
+        padding: 0;
+        margin: 1.5rem 0 0 0;
+        color: #000;
 		a {
 			color: #2e6da4;
 			&:hover {
@@ -439,6 +444,13 @@ div.login-help { padding-left: 40px;}
 			}
 		}
 	}
+    h2 {
+        padding: 0;
+        margin: .5rem 0 0 0;
+    }
+    h1, h2 {
+        border-bottom: none;
+    }
     a {
         border: none;
         background: none;

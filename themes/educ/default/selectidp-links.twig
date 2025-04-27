@@ -2,7 +2,7 @@
 {% extends "base.twig" %}
 
 {% block content %}
-    <h2>{{ pagetitle }}</h2>
+{#    <h2>{{ pagetitle }}</h2>#}
 
     {% if idplist|length == 0 %}
     <div class="message-box message-box-error">{{ "No identity providers found. Cannot continue." | trans }}</div>

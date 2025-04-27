@@ -1,7 +1,11 @@
 <header id="header">
-    <a href="https://educalliance.eu">
+    <a href="{{ homePage }}" class="logo">
         <img src="{{asset('img/educ_logo.svg', 'educ')}}" id="logo" alt="Educ Alliance Logo">
     </a>
+    <div class="header-title">
+        <h1>{{ mainTitle }}</h1>
+        <h2>{{ pagetitle }}</h2>
+    </div>
 </header>
 {% if not hideLanguageBar %}
     <div id="languagebar">
