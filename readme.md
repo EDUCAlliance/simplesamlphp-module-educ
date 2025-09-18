@@ -1,7 +1,7 @@
 EDUC module for SimpleSAMLphp
 =============================
 
-v1.2 -- 2025-05-21
+v1.3.0 -- 2025-09-18
 
 Installation
 ------------
@@ -20,6 +20,10 @@ Environment variables used
 
 Change log
 ----------
+
+### 1.3.0 -- 2025-09-18
+
+- New EU logo + text
 
 ### 1.2 -- 2025-05-21
 
