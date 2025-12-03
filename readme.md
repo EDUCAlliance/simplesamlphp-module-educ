@@ -1,7 +1,7 @@
 EDUC module for SimpleSAMLphp
 =============================
 
-v1.3.0 -- 2025-09-18
+v1.3.1 -- 2025-12-03
 
 Installation
 ------------
@@ -20,6 +20,16 @@ Environment variables used
 
 Change log
 ----------
+
+### Next
+
+- Subtitle translations...
+- Logo...
+
+### 1.3.1 -- 2025-12-03
+
+- Fix footer design
+- Using bootstrap 5.2
 
 ### 1.3.0 -- 2025-09-18
 

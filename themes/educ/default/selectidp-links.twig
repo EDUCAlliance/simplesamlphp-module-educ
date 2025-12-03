@@ -1,4 +1,4 @@
-{% set pagetitle = "Select your identity provider"|trans %}
+{% set pagetitle = "Select your home university or national federation"|trans %}
 {% extends "base.twig" %}
 
 {% block content %}
@@ -48,6 +48,9 @@
                             {{ idpentry.name }}
                             {% if env!='production' %}<div class="small">{{ idpentry.entityid }}</div>{% endif %}
                         </button>
+{#                        {% for key, value in idpentry %}#}
+{#                            {{ key }}: {{ value }};#}
+{#                        {% endfor %}#}
                     </div>
             {% endif %}
         {% endfor %}

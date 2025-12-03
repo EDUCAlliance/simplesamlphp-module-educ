@@ -1,0 +1,5 @@
+msgid "Select your home university or national federation"
+msgstr "Select your home university or national federation"
+
+msgid "Follow Us On"
+msgstr "Follow Us On"

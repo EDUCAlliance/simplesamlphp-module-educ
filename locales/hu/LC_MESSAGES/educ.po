@@ -1,0 +1,5 @@
+msgid "Select your home university or national federation"
+msgstr "Válassza ki az anyaintézményét"
+
+msgid "Follow Us On"
+msgstr "Kövessen minket"
