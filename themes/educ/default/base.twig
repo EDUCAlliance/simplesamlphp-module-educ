@@ -6,10 +6,11 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title>{{ pagetitle }}</title>
+    <link rel="stylesheet" href="{{ asset("bs5.2/css/bootstrap.css", 'educ') }}">
     <link rel="stylesheet" href="{{ asset("css/stylesheet.css") }}">
-    <link rel="stylesheet" href="{{asset("css/default.css", 'educ')}}">
+    <link rel="stylesheet" href="{{ asset("css/default.css", 'educ')}}">
     <link rel="icon" href="{{asset('icon/favicon.ico', 'educ')}}" type="image/vnd.microsoft.icon">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('icon/favicon-16x16.png', 'educ')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('icon/favicon-16x16.png', 'educ')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('icon/favicon-32x32.png', 'educ')}}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('icon/favicon-96x96.png', 'educ')}}">
     <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('icon/android-icon-192x192.png', 'educ')}}">
@@ -22,7 +23,6 @@
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('icon/apple-icon-144x144.png', 'educ')}}">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('icon/apple-icon-152x152.png', 'educ')}}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('icon/apple-icon-180x180.png', 'educ')}}">
-    <link rel="preload" href="{{ asset('fonts/fa-solid-900.woff2') }}" as="font" crossorigin>
 
     <link rel="manifest" href="{{ asset('icon/manifest.json', 'educ')}}">
     <meta name="msapplication-TileColor" content="#ffffff">
@@ -34,7 +34,7 @@
   </head>
   <body id="{{ templateId }}">
     <div id="wrap" class="container">
-      {% block header %}{% include "_header_1.twig" %}{% endblock %}
+      {% block header %}{% include "_header.twig" %}{% endblock %}
       <main>
         {% block contentwrapper1 %}{% block content %}{% endblock %}{% endblock contentwrapper1 %}
       </main>

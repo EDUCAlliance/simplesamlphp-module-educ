@@ -11,7 +11,6 @@ body {
 }
 img {
   border: none;
-  display: block;
 }
 img#logo {
   height: 97px;
@@ -532,5 +531,11 @@ a.pure-button-red {
 }
 .frontpage-menu {
   margin-top: 1rem;
+}
+.footer-content {
+  font-size: small;
+}
+.text-pink {
+  color: #f76d98;
 }
 /*# sourceMappingURL=default.css.map */
