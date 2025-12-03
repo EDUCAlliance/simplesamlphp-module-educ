@@ -1,3 +1,6 @@
+msgid "Authentication Service"
+msgstr "Authentication Service"
+
 msgid "Select your home university or national federation"
 msgstr "Select your home university or national federation"
 
