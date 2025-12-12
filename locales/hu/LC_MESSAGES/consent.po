@@ -1,0 +1,2 @@
+msgid "%SPNAME% requires that the information below is transferred."
+msgstr "Ön azonosítja magát ehhez a szolgáltatáshoz %SPNAME%. Engedélyezi az alábbi adatok elküldését?"

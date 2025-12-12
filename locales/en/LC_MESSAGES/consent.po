@@ -1,0 +1,3 @@
+msgid "%SPNAME% requires that the information below is transferred."
+msgstr "%SPNAME% requires that the information below is transferred."
+
