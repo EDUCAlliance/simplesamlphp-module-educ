@@ -324,7 +324,7 @@ input[name=remember] {
   background-image: linear-gradient(#fcfcfc, #eee);
   text-align: center;
   padding: 5px;
-  cursor: hand;
+  cursor: pointer;
 }
 .btn.btn-primary,
 .btnaddonright.btn-primary {
@@ -537,5 +537,8 @@ a.pure-button-red {
 }
 .text-pink {
   color: #f76d98;
+}
+.logpeek-content {
+  font-size: small;
 }
 /*# sourceMappingURL=default.css.map */
