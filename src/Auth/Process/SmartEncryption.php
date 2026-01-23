@@ -40,6 +40,7 @@ class SmartEncryption extends ProcessingFilter {
 //                $state["saml:EncryptionConfig"]["assertion.encryption"] = true;
 //                $state['Destination']['assertion.encryption'] = true;
                 $state['SPMetadata']['assertion.encryption'] = true;
+                Logger::info("SmartEncryption: Encryption is forced for SP: " . $spEntityId);
                 return;
             }
         }
