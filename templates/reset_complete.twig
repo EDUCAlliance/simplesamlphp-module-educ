@@ -1,0 +1,21 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="header">
+        <h1>{{ 'Successful deletion'|trans }}</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-success">
+                {{ 'Saved selection of organization was deleted successfully'|trans }}
+            </div>
+
+            <p>{{ 'The institution selection list will now reappear the next time you log in.'|trans }}</p>
+
+            <div style="margin-top: 2em;">
+                <a href="/" class="btn btn-primary">{{ 'Back to the front page'|trans }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

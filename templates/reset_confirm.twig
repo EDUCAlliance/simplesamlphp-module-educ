@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="header">
+        <h1>{{ 'Delete selected organization'|trans }}</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <p>{{ 'It appears that the system is automatically logging you in through a previously selected institution. If you want to select a different institution, you will need to delete the saved setting.'|trans }}</p>
+
+            <div style="margin-top: 2em; margin-bottom: 2em;">
+                <form method="get" action="reset.php">
+                    <button type="submit" name="clear" value="1" class="btn btn-danger">
+                        {{ 'Delete saved selection'|trans }}
+                    </button>
+                    <a href="/" class="btn btn-secondary">{{ 'Cancel'|trans }}</a>
+                </form>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>{{ 'Information:'|trans }}</strong>
+                {{ 'This operation only deletes the institution selection, it does not affect your ongoing session.'|trans }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
