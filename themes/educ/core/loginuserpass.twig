@@ -12,7 +12,8 @@
     {%- if not isProduction %}
         <h2>{% trans %}Warning{% endtrans %}</h2>
         <div class="alert alert-warning">
-          {% trans %}You are now accessing a pre-production system. This authentication setup is for testing and pre-production verification only. If someone sent you a link that pointed you here, and you are not <i>a tester</i> you probably got the wrong link, and should <b>not be here</b>.{% endtrans %}
+            {% trans %}You are now accessing a pre-production system. This authentication setup is for testing and pre-production verification only. If someone sent you a link that pointed you here, and you are not
+                <i>a tester</i> you probably got the wrong link, and should <b>not be here</b>.{% endtrans %}
         </div>
     {% endif -%}
     {% if errorcode -%}
@@ -39,39 +40,45 @@
         <p>{{ 'A service has requested you to authenticate yourself. Please enter your username and password in the form below.'|trans }}</p>
         <div class="center-form login-form-start">
             <form id="f" class="form-horizontal" action="{{ formURL }}" method="post" name="f" spellcheck="false">
-                    <div class="form-group">
-                        <label for="username" class="form-label">{{ 'Username'|trans }}</label>
-                        <input id="username" {{ forceUsername ? 'disabled' }} placeholder="{{ username }}" type="text" name="username" class="form-control"
-                {%- if not forceUsername %} tabindex="1" value="{{ username }}" autocomplete="username" {% endif %}
-                {%- if not forceUsername and not username %} autofocus {% endif %} >
-                    {% if rememberUsernameEnabled and not forceUsername -%}
+                <div class="row mb-2 justify-content-md-center">
+                    <label for="username" class="col-md-2 col-form-label">{{ 'Username'|trans }}</label>
+                    <div class="col-md-3">
+                        <input id="username" {{ forceUsername ? 'disabled' }} placeholder="{{ username }}" type="text"
+                               name="username" class="form-control"
+                            {%- if not forceUsername %} tabindex="1" value="{{ username }}" autocomplete="username" {% endif %}
+                            {%- if not forceUsername and not username %} autofocus {% endif %} >
                     </div>
-                    <div class="form-group">
-                        <label for="remember_username" class="form-label">
+                </div>
+                {% if rememberUsernameEnabled and not forceUsername -%}
+                    <div class="row mb-2 justify-content-md-center">
+                        <label for="remember_username" class="col-md-5 col-form-label">
                             <input id="remember_username" type="checkbox" tabindex="4"
-                                    {{ rememberUsernameChecked ? 'checked' }} name="remember_username" value="Yes">
+                                {{ rememberUsernameChecked ? 'checked' }} name="remember_username" value="Yes">
                             <small>{{ 'Remember my username'|trans }}</small>
                         </label>
-                    {%- endif %}
                     </div>
+                {%- endif %}
 
-                    <div class="form-group">
-                        <label for="password">{{ 'Password'|trans}}</label>
-                        <input id="password" type="password" tabindex="2" name="password" class="form-control" autocomplete="current-password"
-                        {%- if forceUsername or username %} autofocus {% endif %} >
+                <div class="row mb-2 justify-content-md-center">
+                    <label for="password" class="col-md-2 col-form-label">{{ 'Password'|trans }}</label>
+                    <div class="col-md-3">
+                        <input id="password" type="password" tabindex="2" name="password" class="form-control"
+                               autocomplete="current-password"
+                            {%- if forceUsername or username %} autofocus {% endif %} >
                     </div>
+                </div>
 
-                    {% if rememberMeEnabled -%}
-                    <div class="form-group">
-                        <label for="remember_me" class="form-label">
-                        <input id="remember_me" type="checkbox" tabindex="5"
+                {% if rememberMeEnabled -%}
+                    <div class="row mb-2 justify-content-md-center">
+                        <label for="remember_me" class="col-md-5 col-form-label">
+                            <input id="remember_me" type="checkbox" tabindex="5"
                                 {{ rememberMeChecked ? 'checked="checked"' }} name="remember_me" value="Yes">
                             <small>{{ 'Remember me'|trans }}</small>
                         </label>
                     </div>
-                    {%- endif %}
+                {%- endif %}
 
-                    {% if organizations is defined -%}
+                {% if organizations is defined -%}
                     <div class="pure-control-group">
                         <label for="organization" class="form-label">{{ 'Organization'|trans }}</label>
                         <div class="pure-select right pure-input-1-2 pure-input-sm-1-1">
@@ -90,23 +97,27 @@
                             </select>
                         </div>
                         {% if rememberOrganizationEnabled is defined -%}
-                        <div class="pure-controls">
-                            <label for="remember_organization" class="form-label">
-                                <input type="checkbox" id="remember_organization" tabindex="5" name="remember_organization"
-                                    value="Yes" {{ rememberOrganizationChecked ? 'checked="checked"' }} >
-                                <small>{{ 'Remember my organization'|trans }}</small>
-                            </label>
-                        </div>
+                            <div class="pure-controls">
+                                <label for="remember_organization" class="form-label">
+                                    <input type="checkbox" id="remember_organization" tabindex="5"
+                                           name="remember_organization"
+                                           value="Yes" {{ rememberOrganizationChecked ? 'checked="checked"' }} >
+                                    <small>{{ 'Remember my organization'|trans }}</small>
+                                </label>
+                            </div>
                         {%- endif %}
                     </div> <!--pure-control-group-->
                 {%- endif %}
 
-                <div class="form-group login-form-submit">
-                    <button class="btn btn-primary" id="submit_button"
-                            type="submit" tabindex="6" data-default="{% trans %}Login{% endtrans %}"
-                            data-processing="{% trans %}Processing...{% endtrans %}">
-                    {% trans %}Login{% endtrans %}
-                    </button>
+                <div class="row mb-2 justify-content-md-center">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary" id="submit_button"
+                                type="submit" tabindex="6" data-default="{% trans %}Login{% endtrans %}"
+                                data-processing="{% trans %}Processing...{% endtrans %}">
+                            {% trans %}Login{% endtrans %}
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>

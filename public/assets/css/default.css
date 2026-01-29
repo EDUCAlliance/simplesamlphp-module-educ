@@ -472,8 +472,7 @@ button.btn-idpselect + p {
   border-bottom: none !important;
 }
 .form-horizontal {
-  display: inline-flex;
-  flex-direction: column;
+  width: 100%;
 }
 .form-horizontal .form-group {
   display: flex;
