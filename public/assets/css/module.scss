@@ -15,6 +15,9 @@ a {
 		color: $educ-purple;
 		background-color: inherit;
 		padding: 0;
+		&.btn {
+			padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+		}
 	}
 }
 img#logo {

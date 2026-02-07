@@ -23093,6 +23093,9 @@ a:hover {
   background-color: inherit;
   padding: 0;
 }
+a:hover.btn {
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+}
 
 img#logo {
   height: 97px;
