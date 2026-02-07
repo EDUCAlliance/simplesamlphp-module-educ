@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "sass --quiet-deps -q --source-map public/assets/css/main.scss public/assets/css/main.css"
+    "build": "./build.sh"
   },
   "devDependencies": {
     "csso": "^5.0.5",

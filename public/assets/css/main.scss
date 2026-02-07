@@ -1,4 +1,11 @@
-@import "educ.scss";
-@import "../../../../../../../npm-asset/bootstrap/scss/bootstrap.scss";
+@import "educ";
+@import "../../../../../../../npm-asset/bootstrap/scss/bootstrap";
 
-@import "module.scss";
+$primaryBackground: #b8002c;
+$transitionBackground: #db0100;
+$secondaryBackground: #e8410c;
+
+@import "../../../../../public/assets/base/resources/css/default";
+@import "module";
+
+$light-yellow: $color-light-yellow;

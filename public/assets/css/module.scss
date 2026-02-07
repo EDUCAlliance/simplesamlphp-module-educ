@@ -1,8 +1,22 @@
+:root {
+	--bs-body-font-family: system-ui, "Open Sans", sans-serif;
+	--bs-font-sans-serif: system-ui, "Open Sans", sans-serif;
+}
+body {
+	font-family: system-ui, "Open Sans", sans-serif;
+}
 * {
 	margin: 0;
 	padding: 0;
 }
-
+a {
+	text-decoration: none;
+	&:hover {
+		color: $educ-purple;
+		background-color: inherit;
+		padding: 0;
+	}
+}
 img#logo {
 	height: 97px;
 	margin-top: 1.5rem;
@@ -38,6 +52,10 @@ dt {
 	/*padding-right: 10px;*/
 	/*background-color: #666;*/
 	color: $color-dark-red;
+	a, a:hover {
+		padding: 0 10px !important;
+		background-color: inherit !important;
+	}
 	a:link, #languagebar a:visited {
 		text-decoration: none;
 		color: #737373;
@@ -74,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 	margin: 1.2em 0 .3em;
 	color: #000;
-	//border-bottom: 1px solid #eee;
+	border-bottom: none;
 	padding-bottom: .1em;
 }
 
@@ -229,7 +247,7 @@ fieldset.fancyfieldset {
 	legend {
 		margin-left: 2em;
 		padding: 3px 2em 3px 2em;
-		border: 1px solid #bbb;
+		border: none;
 	}
 }
 
@@ -464,6 +482,15 @@ form {
     right: 6.25rem;
     font-size: small;
 }
-.pure-button:hover, .pure-button:focus {
-    padding: .5em;
+//.pure-button:hover, .pure-button:focus {
+//    padding: .5em;
+//}
+form.pure-form fieldset.fancyfieldset {
+	select {
+		margin-right: .5rem;
+	}
+	input {
+		padding: .3rem .6rem;
+		margin-right: .5rem;
+	}
 }

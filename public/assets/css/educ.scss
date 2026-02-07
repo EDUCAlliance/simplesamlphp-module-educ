@@ -45,3 +45,8 @@ $danger: $educ-pink;
 $warning: darken($educ-yellow, 10%);
 $light: $color-light-gray;
 $dark: $color-dark-red;
+
+:root {
+  --bs-body-font-family: system-ui, "Open Sans", sans-serif;
+  --bs-font-sans-serif: system-ui, "Open Sans", sans-serif;
+}
