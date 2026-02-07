@@ -1,0 +1,47 @@
+$educ-green: rgb(40, 190, 127);
+$educ-pink: rgb(249, 110, 153);
+$educ-orange: rgb(255, 152, 128);
+$educ-purple: rgb(157, 118, 229);
+$educ-yellow:           #e8dd79;
+
+$brand-primary:         $educ-purple;
+$brand-success:         $educ-green;
+$brand-warning:         $educ-yellow;
+$brand-danger:          $educ-pink;
+$brand-orange:          $educ-orange;
+
+$color-dark-green: darken($educ-green, 10%);
+$color-dark-orange: darken($educ-orange, 10%);
+$color-dark-purple: darken($educ-purple, 10%);
+$color-dark-pink: darken($educ-pink, 10%);
+$color-dark-yellow: darken($educ-yellow, 10%);
+
+$color-light-green: lighten($educ-green, 10%);
+$color-light-orange: lighten($educ-orange, 10%);
+$color-light-purple: lighten($educ-purple, 10%);
+$color-light-pink: lighten($educ-pink, 10%);
+$color-light-yellow: lighten($educ-yellow, 10%);
+
+$color-blue: #337ab7;
+$color-light-blue: lighten($color-blue, 10%);
+$color-red: #b8335d;
+$color-dark-red: darken($color-red, 10%);
+$color-gray: #838383;
+$color-dark-gray: #383838;
+$color-light-gray: #ddd;
+
+$main-bg-color: #fff;
+$main-border-color: $color-gray;
+$gray-text-color: $color-gray;
+$gray-back-color: $color-dark-gray;
+
+// Bootstrap colors
+
+$info: $color-blue;
+$primary: $educ-purple;
+$secondary: $color-gray;
+$success: $educ-green;
+$danger: $educ-pink;
+$warning: darken($educ-yellow, 10%);
+$light: $color-light-gray;
+$dark: $color-dark-red;
