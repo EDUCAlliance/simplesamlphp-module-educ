@@ -1,7 +1,7 @@
 EDUC module for SimpleSAMLphp
 =============================
 
-v1.3.1 -- 2025-12-03
+v1.3.2 -- 2026-03-12
 
 Installation
 ------------
@@ -21,10 +21,17 @@ Environment variables used
 Change log
 ----------
 
-### Next
+### 1.3.2 -- 2026-03-12
 
-- Subtitle translations...
-- Logo...
+- Subtitle translations
+- Logo
+- educ::MDQ datastore (fix metadat error format)
+- educ::UniqueID filter
+- Smart encryption filter for SP responses
+- Fix footer design
+- Fix e-mail address
+- Fix logpeek
+- Fix login form grid
 
 ### 1.3.1 -- 2025-12-03
 
