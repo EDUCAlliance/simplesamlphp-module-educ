@@ -14,13 +14,14 @@ class Names extends \SimpleSAML\Auth\ProcessingFilter
     private array $surnamePrefixes = [];
 
     public function __construct($config, $reserved) {
+        parent::__construct($config, $reserved);
         assert(is_array($config));
-        if (isset($config['prefixes']) && iarray($config['prefixes'])) {
+        if (isset($config['prefixes']) && is_array($config['prefixes'])) {
             $this->surnamePrefixes = $config['prefixes'];
         }
     }
 
-    public function process(&$request)
+    public function process(&$state): void
     {
         $attributes = &$state['Attributes'];
 
@@ -75,7 +76,7 @@ class Names extends \SimpleSAML\Auth\ProcessingFilter
 
         if ($count >= 3) {
             $penultimate = strtolower($tokens[$count - 2]);
-            if (in_array($penultimate, self::$surnamePrefixes)) {
+            if (in_array($penultimate, $this->surnamePrefixes)) {
                 return [
                     'givenName' => implode(' ', array_slice($tokens, 0, $count - 2)),
                     'sn' => implode(' ', array_slice($tokens, $count - 2))

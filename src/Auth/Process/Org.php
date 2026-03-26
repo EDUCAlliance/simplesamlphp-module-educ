@@ -12,16 +12,16 @@ class Org extends \SimpleSAML\Auth\ProcessingFilter
     {
         parent::__construct($config, $reserved);
 
-        if (isset($config['map']) && iarray($config['map'])) {
+        if (isset($config['map']) && is_array($config['map'])) {
             $this->map = $config['map'];
         }
     }
 
-    public function process(&$request)
+    public function process(&$state): void
     {
         $eppnOid = "urn:oid:1.3.6.1.4.1.5923.1.1.1.6";
         $oOid = "urn:oid:2.5.4.10";
-        $attributes = &$request['Attributes'];
+        $attributes = &$state['Attributes'];
 
         if (!isset($attributes[$eppnOid][0])) {
             return;
