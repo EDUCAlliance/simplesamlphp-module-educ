@@ -10,6 +10,7 @@ class Names extends \SimpleSAML\Auth\ProcessingFilter
     private const OID_GIVEN_NAME   = 'urn:oid:2.5.4.42';
     private const OID_SURNAME      = 'urn:oid:2.5.4.4';
     private const OID_EPPN         = 'urn:oid:1.3.6.1.4.1.5923.1.1.1.6';
+    private const OID_MAIL         = 'urn:oid:0.9.2342.19200300.100.1.3';
 
     private array $surnamePrefixes = [];
 
@@ -29,17 +30,29 @@ class Names extends \SimpleSAML\Auth\ProcessingFilter
             return;
         }
 
-        // If both attribute exist, don't touch
+        // If both attributes exist, don't touch
         if (isset($attributes[self::OID_GIVEN_NAME]) && isset($attributes[self::OID_SURNAME])) {
             return;
         }
 
         $displayName = $attributes[self::OID_DISPLAY_NAME][0];
 
-        $eppn = $attributes[self::OID_EPPN][0] ?? 'default.en';
+        // Find the best tld
+        $ambiguousTlds = ['eu', 'com', 'org', 'net'];
+        $reverseTlds = ['hu'];
+        $eppn = $attributes[self::OID_EPPN][0]??'';
         $parts = explode('.', $eppn);
         $tld = strtolower(end($parts));
-        $result = $this->parseDisplayName($displayName, $tld=='hu');
+        if(in_array($tld, $ambiguousTlds)) {
+            $mails = $attributes[self::OID_MAIL] ?? [];
+            foreach($mails as $mail) {
+                $parts = explode('.', $mail);
+                $tld = strtolower(end($parts));
+                if(!in_array($tld, $ambiguousTlds)) break;
+            }
+         }
+
+        $result = $this->parseDisplayName($displayName, in_array($tld, $reverseTlds));
 
         if (!isset($attributes[self::OID_GIVEN_NAME])) {
             $attributes[self::OID_GIVEN_NAME] = [$result['givenName']];

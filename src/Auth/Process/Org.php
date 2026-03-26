@@ -21,21 +21,12 @@ class Org extends \SimpleSAML\Auth\ProcessingFilter
     {
         $eppnOid = "urn:oid:1.3.6.1.4.1.5923.1.1.1.6";
         $oOid = "urn:oid:2.5.4.10";
+
         $attributes = &$state['Attributes'];
 
-        if (!isset($attributes[$eppnOid][0])) {
-            return;
-        }
-
-        $eppn = $attributes[$eppnOid][0];
-        $parts = explode('@', $eppn);
-
-        if (count($parts) !== 2) {
-            return;
-        }
-
-        $scope = $parts[1];
-        if (isset($this->map[$scope])) {
+        $eppn = $attributes[$eppnOid][0]??'';
+        $scope = explode('@', $eppn)[1]??null;
+        if ($scope && isset($this->map[$scope])) {
             $attributes[$oOid] = [$this->map[$scope]];
         }
     }
