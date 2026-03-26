@@ -15,9 +15,9 @@ class Names extends \SimpleSAML\Auth\ProcessingFilter
 
     public function __construct($config, $reserved) {
         assert(is_array($config));
-        $globalConfig = Configuration::getInstance();
-        $parserConfig = $globalConfig->getConfigItem('educ.filters.nameparser');
-        $this->surnamePrefixes = $cfg->getArray('prefixes');
+        if (isset($config['prefixes']) && iarray($config['prefixes'])) {
+            $this->surnamePrefixes = $config['prefixes'];
+        }
     }
 
     public function process(&$request)

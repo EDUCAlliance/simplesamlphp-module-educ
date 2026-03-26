@@ -11,10 +11,10 @@ class Org extends \SimpleSAML\Auth\ProcessingFilter
     public function __construct($config, $reserved)
     {
         parent::__construct($config, $reserved);
-        
-        assert(is_array($config));
-        $cfg = Configuration::loadFromArray($config, 'filter.org');
-        $this->map = $cfg->getArray('map');
+
+        if (isset($config['map']) && iarray($config['map'])) {
+            $this->map = $config['map'];
+        }
     }
 
     public function process(&$request)
