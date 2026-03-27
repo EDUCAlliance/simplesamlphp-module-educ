@@ -27,7 +27,7 @@ class Org extends \SimpleSAML\Auth\ProcessingFilter
         $eppn = $attributes[$eppnOid][0]??'';
         $scope = explode('@', $eppn)[1]??null;
         if ($scope && isset($this->map[$scope])) {
-            $attributes[$oOid] = [$this->map[$scope]];
+            $attributes[$oOid] = (array)$this->map[$scope];
         }
     }
 }
