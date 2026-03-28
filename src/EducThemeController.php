@@ -3,6 +3,7 @@
 
 namespace SimpleSAML\Module\educ;
 
+use Composer\InstalledVersions;
 use Exception;
 use SimpleSAML\Configuration;
 use SimpleSAML\Error\ConfigurationError;
@@ -29,6 +30,9 @@ class EducThemeController implements TemplateControllerInterface
         $data['env'] = getenv('APPLICATION_ENV')?:'production';
         $data['homePage'] = $config->getOptionalString('educ.homePage', '/');
         $data['mainTitle'] = $config->getOptionalString('educ.mainTitle', '');
+        $versionFile = dirname(__DIR__, 6).'/version';
+        $data['appVersion'] = file_exists($versionFile) ? file_get_contents($versionFile) : '';
+        $data['educVersion'] = InstalledVersions::getPrettyVersion('educalliance/simplesamlphp-module-educ');
     }
 
     /**
